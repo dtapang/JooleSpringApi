@@ -34,6 +34,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.getByCategory(category));
     }
 
+    @GetMapping("/category/{category}/{query}")
+    public ResponseEntity<?> searchCategories(@PathVariable(name = "category") String category, @PathVariable(name = "query") String query){
+        return ResponseEntity.ok(productService.getByCategorySearch(category, query));
+    }
+
     @GetMapping("/find/{productId}")
     public ResponseEntity<?> listByCategory(@PathVariable Integer productId){
         Product product = productService.getById(productId);

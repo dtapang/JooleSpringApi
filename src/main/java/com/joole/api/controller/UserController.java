@@ -49,7 +49,8 @@ public class UserController {
         //user.setFirstname(signupRequest.getFirstname());
         //user.setLastname(signupRequest.getLastname());
         //user.setJoindate(new Timestamp(System.currentTimeMillis()));
-
+        if(signupRequest.getRole()==null)
+            signupRequest.setRole("USER");
         user.setRole(signupRequest.getRole());
 
         user.setId((new Random()).nextInt());
@@ -57,7 +58,7 @@ public class UserController {
         return ResponseEntity.ok("User successfully created");
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginRequest){
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
         try {

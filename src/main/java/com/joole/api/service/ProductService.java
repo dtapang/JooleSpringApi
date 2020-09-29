@@ -14,4 +14,6 @@ public interface ProductService {
 
     Set<Product> getByCategory(String category);
     Set<String> getCategories();
+
+    Set<Product> getByCategorySearch(String category, String query);
 }

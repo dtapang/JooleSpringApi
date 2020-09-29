@@ -34,11 +34,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Set<Product> getByCategory(String category) {
-        return productDao.getProductsByType(category);
+        return productDao.getProductsByCategory(category);
     }
 
     @Override
     public Set<String> getCategories() {
         return productDao.getAllCategories();
+    }
+
+    @Override
+    public Set<Product> getByCategorySearch(String category, String query) {
+
+
+        return productDao.getProductsByCategoryAndManufacturerLike(category,query);
     }
 }

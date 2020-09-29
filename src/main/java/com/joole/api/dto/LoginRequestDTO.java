@@ -9,6 +9,6 @@ public class LoginRequestDTO {
         return password;
     }
 
-    private String username;
-    private String password;
+    public String username;
+    public String password;
 }
